@@ -5,7 +5,6 @@ const leaveDateTextBox = document.getElementById("leaveDateTextBox")
 const returnDateTextBox = document.getElementById("returnDateTextBox")
 const submitBtn = document.getElementById("submitBtn")
 
-const datesEntered = document.getElementById("datesEntered")
 const displayFlight = document.getElementById("displayFlight")
 
 function fetchFlight(from, to, leaveDate, returnDate) {
@@ -29,12 +28,16 @@ function fetchFlight(from, to, leaveDate, returnDate) {
 
 function flightDisplay(result) {
 
+    let date = result.Quotes[0].OutboundLeg.DepartureDate
+    let formattedDate = date.slice(6, 10) + "-" + date.slice(0, 4)
+
     displayFlight.innerHTML = `
                             <div class="flightInfo">
-                            <h2>${result.Carriers[0].Name}</h2>
-                            <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
-                            <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
-                            <p>$${result.Quotes[0].MinPrice}</p>
+                                <h2>${result.Carriers[0].Name}</h2>
+                                <p>${formattedDate}</p>
+                                <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
+                                <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
+                                <p>$${result.Quotes[0].MinPrice}</p>
                             </div>
                          `
 }
@@ -45,12 +48,6 @@ submitBtn.addEventListener('click', function() {
     const to = toTextBox.value 
     const leaveDate = leaveDateTextBox.value 
     const returnDate = returnDateTextBox.value 
-
-    datesEntered.innerHTML = `
-                        <div class='fightDates'>
-                            ${leaveDate} - ${returnDate}
-                        </div>
-    `
 
     fetchFlight(from, to, leaveDate, returnDate)
     fromTextBox.value = ''
