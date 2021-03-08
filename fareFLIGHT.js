@@ -8,7 +8,6 @@ const submitBtn = document.getElementById("submitBtn")
 const datesEntered = document.getElementById("datesEntered")
 const displayFlight = document.getElementById("displayFlight")
 
-
 function fetchFlight(from, to, leaveDate, returnDate) {
 
     fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${from}-sky/${to}-sky/${leaveDate}?inboundpartialdate=${returnDate}`, {
