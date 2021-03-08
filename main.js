@@ -58,3 +58,17 @@ submitBtn.addEventListener('click', function() {
     leaveDateTextBox.value = ''
     returnDateTextBox.value = ''
 })
+
+fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=Atlanta", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "e118aa187bmsh51dce0dd58837e0p1bcfe5jsn469699bec0df",
+		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
+});
