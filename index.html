@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
         <input type="text" id="fromTextBox" placeholder="Origin">
         <input type="text" id="toTextBox" placeholder="Destination">
-        <input type="date" id="leaveDateTextBox" placeholder="Leave On">
-        <input type="date" id="returnDateTextBox" placeholder="Return On">
+        <select name="flightSelectionDropDown" id="flightSelectionDropDown">
+            <option value="roundTripSelection" id="roundTripSelection">Round Trip</option>
+            <option value="oneWayTripSelection" id="oneWayTripSelection">One Way</option>  
+        </select>
+        <div id="dateSelectionContainer">        
+            <input type="date" id="leaveDateTextBox" placeholder="Leave On">
+            <input type="date" id="returnDateTextBox" placeholder="Return On">
+        </div>
+
         <button id="submitBtn">Search Flight</button>
         <br>
         
