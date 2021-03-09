@@ -45,10 +45,18 @@ function flightDisplay(result) {
                                 <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
                                 <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
                                 <p>$${result.Quotes[0].MinPrice}</p>
-                                
                             </div>
                          `
 }
+
+flightSelectionDropDown.addEventListener('change', function() {
+
+    if (flightSelectionDropDown.value == "oneWayTripSelection") {
+        returnDateTextBox.style.display = "none"
+    } else if (flightSelectionDropDown.value == "roundTripSelection") {
+        returnDateTextBox.style.display = ""
+    }
+})
 
 submitBtn.addEventListener('click', function() {
 
@@ -118,19 +126,3 @@ function carrierRedirectLink(carrier) {
         flightLink.innerHTML = `<a href="https://www.skyscanner.com/">Buy Ticket</a>`
     }
 }
-
-flightSelectionDropDown.addEventListener('change', function() {
-
-    if (flightSelectionDropDown.value == "oneWayTripSelection") {
-        dateSelectionContainer.innerHTML = `
-            <input type='date' id='leaveDateTextBox' placeholder='Leave On'>
-        `
-    } 
-
-    if (flightSelectionDropDown.value == "roundTripSelection") {
-        dateSelectionContainer.innerHTML = `
-            <input type='date' id='leaveDateTextBox' placeholder='Leave On'>
-            <input type='date' id='returnDateTextBox' placeholder='Return On'>
-        `
-    }  
-})
