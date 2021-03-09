@@ -11,42 +11,76 @@ const oneWayTripSelection = document.getElementById("oneWayTripSelection")
 
 const dateSelectionContainer = document.getElementById("dateSelectionContainer")
 const displayFlight = document.getElementById("displayFlight")
+const displayReturnFlight = document.getElementById("displayReturnFlight")
 const flightLink = document.getElementById("flightLink")
 
 function fetchFlight(from, to, leaveDate, returnDate) {
 
-    fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${from}-sky/${to}-sky/${leaveDate}?inboundpartialdate=${returnDate}`, {
+    fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${from}-sky/${to}-sky/${leaveDate}?inboundpartialdate=`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "e118aa187bmsh51dce0dd58837e0p1bcfe5jsn469699bec0df",
 		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
 	}
-}).then(response => {
-	console.log(response);
-    return response.json();
-}).then((result) => {
-    console.log(result);
-    flightDisplay(result)
-    carrierRedirectLink(result.Carriers[0].Name)
-}).catch(err => {
-	console.error(err);
-});
+    }).then(response => {
+        console.log(response);
+        return response.json();
+    }).then((result) => {
+        console.log(result);
+        flightDisplay(result)
+        carrierRedirectLink(result.Carriers[0].Name)
+    }).catch(err => {
+        console.error(err);
+    });
+
+    fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${to}-sky/${from}-sky/${returnDate}?inboundpartialdate=`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "e118aa187bmsh51dce0dd58837e0p1bcfe5jsn469699bec0df",
+            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+        }
+    }).then(response => {
+        console.log(response);
+        return response.json();
+    }).then((result2) => {
+        console.log(result2);
+        flightReturnDisplay(result2)
+        carrierRedirectLink(result2.Carriers[0].Name)
+    }).catch(err => {
+        console.error(err);
+    });
 }
 
 function flightDisplay(result) {
-
+    
     let date = result.Quotes[0].OutboundLeg.DepartureDate
     let formattedDate = date.slice(6, 10) + "-" + date.slice(0, 4)
-    
+
     displayFlight.innerHTML = `
-                            <div class="flightInfo">
-                                <h2>${result.Carriers[0].Name}</h2>
-                                <p>${formattedDate}</p>
-                                <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
-                                <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
-                                <p>$${result.Quotes[0].MinPrice}</p>
-                            </div>
-                         `
+        <div class="flightInfo">
+            <h2>${result.Carriers[0].Name}</h2>
+            <p>${formattedDate}</p>
+            <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
+            <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
+            <p>$${result.Quotes[0].MinPrice}</p>
+        </div>
+    `
+}
+
+function flightReturnDisplay(result2) {
+    
+    let date = result2.Quotes[0].OutboundLeg.DepartureDate
+    let formattedDate = date.slice(6, 10) + "-" + date.slice(0, 4)
+
+    displayReturnFlight.innerHTML = `
+        <div class="returnFlightInfo">
+            <h2>${result2.Carriers[0].Name}</h2>
+            <p>${formattedDate}</p>
+            <p>From: ${result2.Places[1].Name} (${result2.Places[1].IataCode})</p>
+            <p>To: ${result2.Places[0].Name} (${result2.Places[0].IataCode})</p>
+            <p>$${result2.Quotes[0].MinPrice}</p>
+        </div>
+    `
 }
 
 flightSelectionDropDown.addEventListener('change', function() {
@@ -64,7 +98,6 @@ submitBtn.addEventListener('click', function() {
     const to = toTextBox.value 
     const leaveDate = leaveDateTextBox.value 
     const returnDate = returnDateTextBox.value 
-
     fetchFlight(from, to, leaveDate, returnDate)
     fromTextBox.value = ''
     toTextBox.value = ''
