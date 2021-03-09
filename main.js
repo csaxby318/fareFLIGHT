@@ -5,6 +5,11 @@ const leaveDateTextBox = document.getElementById("leaveDateTextBox")
 const returnDateTextBox = document.getElementById("returnDateTextBox")
 const submitBtn = document.getElementById("submitBtn")
 
+const flightSelectionDropDown = document.getElementById("flightSelectionDropDown")
+const roundTripSelection = document.getElementById("roundTripSelection")
+const oneWayTripSelection = document.getElementById("oneWayTripSelection")
+
+const dateSelectionContainer = document.getElementById("dateSelectionContainer")
 const displayFlight = document.getElementById("displayFlight")
 const flightLink = document.getElementById("flightLink")
 
@@ -113,3 +118,19 @@ function carrierRedirectLink(carrier) {
         flightLink.innerHTML = `<a href="https://www.skyscanner.com/">Buy Ticket</a>`
     }
 }
+
+flightSelectionDropDown.addEventListener('change', function() {
+
+    if (flightSelectionDropDown.value == "oneWayTripSelection") {
+        dateSelectionContainer.innerHTML = `
+            <input type='date' id='leaveDateTextBox' placeholder='Leave On'>
+        `
+    } 
+
+    if (flightSelectionDropDown.value == "roundTripSelection") {
+        dateSelectionContainer.innerHTML = `
+            <input type='date' id='leaveDateTextBox' placeholder='Leave On'>
+            <input type='date' id='returnDateTextBox' placeholder='Return On'>
+        `
+    }  
+})
