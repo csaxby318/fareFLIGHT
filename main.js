@@ -3,11 +3,15 @@ const fromTextBox = document.getElementById("fromTextBox")
 const toTextBox = document.getElementById("toTextBox")
 const leaveDateTextBox = document.getElementById("leaveDateTextBox")
 const returnDateTextBox = document.getElementById("returnDateTextBox")
-const submitBtn = document.getElementById("submitBtn")
+
 
 const flightSelectionDropDown = document.getElementById("flightSelectionDropDown")
 const roundTripSelection = document.getElementById("roundTripSelection")
 const oneWayTripSelection = document.getElementById("oneWayTripSelection")
+
+const numberOfPassengersDropDown = document.getElementById("numberOfPassengersDropDown")
+
+const submitBtn = document.getElementById("submitBtn")
 
 const dateSelectionContainer = document.getElementById("dateSelectionContainer")
 const displayFlight = document.getElementById("displayFlight")
@@ -55,6 +59,7 @@ function flightDisplay(result) {
     
     let date = result.Quotes[0].OutboundLeg.DepartureDate
     let formattedDate = date.slice(6, 10) + "-" + date.slice(0, 4)
+    let priceByPassengers = result.Quotes[0].MinPrice * globalNumOfPassengers
 
     displayFlight.innerHTML = `
         <div class="flightInfo">
@@ -62,7 +67,7 @@ function flightDisplay(result) {
             <p>${formattedDate}</p>
             <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
             <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
-            <p>$${result.Quotes[0].MinPrice}</p>
+            <p>$${priceByPassengers}</p>
         </div>
     `
 }
@@ -71,6 +76,7 @@ function flightReturnDisplay(result2) {
     
     let date = result2.Quotes[0].OutboundLeg.DepartureDate
     let formattedDate = date.slice(6, 10) + "-" + date.slice(0, 4)
+    let priceByPassengers = result2.Quotes[0].MinPrice * globalNumOfPassengers
 
     displayReturnFlight.innerHTML = `
         <div class="returnFlightInfo">
@@ -78,7 +84,7 @@ function flightReturnDisplay(result2) {
             <p>${formattedDate}</p>
             <p>From: ${result2.Places[1].Name} (${result2.Places[1].IataCode})</p>
             <p>To: ${result2.Places[0].Name} (${result2.Places[0].IataCode})</p>
-            <p>$${result2.Quotes[0].MinPrice}</p>
+            <p>$${priceByPassengers}</p>
         </div>
     `
 }
@@ -93,16 +99,21 @@ flightSelectionDropDown.addEventListener('change', function() {
 })
 
 submitBtn.addEventListener('click', function() {
+    console.log(numberOfPassengersDropDown.value)
 
     const from = fromTextBox.value 
     const to = toTextBox.value 
     const leaveDate = leaveDateTextBox.value 
-    const returnDate = returnDateTextBox.value 
+    const returnDate = returnDateTextBox.value
+    const numberOfPassengers = numberOfPassengersDropDown.value
+    globalNumOfPassengers = numberOfPassengers 
+
     fetchFlight(from, to, leaveDate, returnDate)
     fromTextBox.value = ''
     toTextBox.value = ''
     leaveDateTextBox.value = ''
     returnDateTextBox.value = ''
+    numberOfPassengersDropDown.value = 'none'
 })
 
 function carrierRedirectLink(carrier) {
@@ -159,3 +170,8 @@ function carrierRedirectLink(carrier) {
         flightLink.innerHTML = `<a href="https://www.skyscanner.com/">Buy Ticket</a>`
     }
 }
+
+// numberOfPassengersDropDown.addEventListener('change', function() {
+//     globalNumOfPassengers = numberOfPassengersDropDown.value
+//     console.log(globalNumOfPassengers)
+// })
