@@ -170,8 +170,3 @@ function carrierRedirectLink(carrier) {
         flightLink.innerHTML = `<a href="https://www.skyscanner.com/">Buy Ticket</a>`
     }
 }
-
-// numberOfPassengersDropDown.addEventListener('change', function() {
-//     globalNumOfPassengers = numberOfPassengersDropDown.value
-//     console.log(globalNumOfPassengers)
-// })
