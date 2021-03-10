@@ -1,4 +1,3 @@
-
 const fromTextBox = document.getElementById("fromTextBox")
 const toTextBox = document.getElementById("toTextBox")
 const leaveDateTextBox = document.getElementById("leaveDateTextBox")
@@ -8,6 +7,7 @@ const returnDateTextBox = document.getElementById("returnDateTextBox")
 const flightSelectionDropDown = document.getElementById("flightSelectionDropDown")
 const roundTripSelection = document.getElementById("roundTripSelection")
 const oneWayTripSelection = document.getElementById("oneWayTripSelection")
+const lineImage = document.getElementById("lineImage")
 
 const numberOfPassengersDropDown = document.getElementById("numberOfPassengersDropDown")
 
@@ -21,11 +21,11 @@ const flightLink = document.getElementById("flightLink")
 function fetchFlight(from, to, leaveDate, returnDate) {
 
     fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${from}-sky/${to}-sky/${leaveDate}?inboundpartialdate=`, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "e118aa187bmsh51dce0dd58837e0p1bcfe5jsn469699bec0df",
-		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
-	}
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "e118aa187bmsh51dce0dd58837e0p1bcfe5jsn469699bec0df",
+            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+        }
     }).then(response => {
         console.log(response);
         return response.json();
@@ -56,7 +56,7 @@ function fetchFlight(from, to, leaveDate, returnDate) {
 }
 
 function flightDisplay(result) {
-    
+
     let date = result.Quotes[0].OutboundLeg.DepartureDate
     let formattedDate = date.slice(6, 10) + "-" + date.slice(0, 4)
     let priceByPassengers = result.Quotes[0].MinPrice * globalNumOfPassengers
@@ -73,7 +73,7 @@ function flightDisplay(result) {
 }
 
 function flightReturnDisplay(result2) {
-    
+
     let date = result2.Quotes[0].OutboundLeg.DepartureDate
     let formattedDate = date.slice(6, 10) + "-" + date.slice(0, 4)
     let priceByPassengers = result2.Quotes[0].MinPrice * globalNumOfPassengers
@@ -93,6 +93,8 @@ flightSelectionDropDown.addEventListener('change', function() {
 
     if (flightSelectionDropDown.value == "oneWayTripSelection") {
         returnDateTextBox.style.display = "none"
+        lineImage.style.display = "none"
+
     } else if (flightSelectionDropDown.value == "roundTripSelection") {
         returnDateTextBox.style.display = ""
     }
@@ -101,12 +103,12 @@ flightSelectionDropDown.addEventListener('change', function() {
 submitBtn.addEventListener('click', function() {
     console.log(numberOfPassengersDropDown.value)
 
-    const from = fromTextBox.value 
-    const to = toTextBox.value 
-    const leaveDate = leaveDateTextBox.value 
+    const from = fromTextBox.value
+    const to = toTextBox.value
+    const leaveDate = leaveDateTextBox.value
     const returnDate = returnDateTextBox.value
     const numberOfPassengers = numberOfPassengersDropDown.value
-    globalNumOfPassengers = numberOfPassengers 
+    globalNumOfPassengers = numberOfPassengers
 
     fetchFlight(from, to, leaveDate, returnDate)
     fromTextBox.value = ''
@@ -118,80 +120,55 @@ submitBtn.addEventListener('click', function() {
 
 function carrierRedirectLink(carrier) {
 
-    if(carrier == "Spirit Airlines") {
+    if (carrier == "Spirit Airlines") {
         flightLink.innerHTML = `<a href="https://www.spirit.com/">Buy Ticket</a>`
-    }else if(carrier == "Frontier Airlines"){
+    } else if (carrier == "Frontier Airlines") {
         flightLink.innerHTML = `<a href="https://www.flyfrontier.com/">Buy Ticket</a>`
-    }else if(carrier == "American Airlines"){
+    } else if (carrier == "American Airlines") {
         flightLink.innerHTML = `<a href="https://www.aa.com/homePage.do">Buy Ticket</a>`
-    }else if(carrier == "Delta"){
+    } else if (carrier == "Delta") {
         flightLink.innerHTML = `<a href="https://www.delta.com/">Buy Ticket</a>`
-    }else if(carrier == "United"){
+    } else if (carrier == "United") {
         flightLink.innerHTML = `<a href="https://www.united.com/">Buy Ticket</a>`
-    }else if(carrier == "jetBlue"){
+    } else if (carrier == "jetBlue") {
         flightLink.innerHTML = `<a href="https://www.jetblue.com/">Buy Ticket</a>`
-    }else if(carrier == "Southwest Airlines"){
+    } else if (carrier == "Southwest Airlines") {
         flightLink.innerHTML = `<a href="https://www.southwest.com/">Buy Ticket</a>`
-    }else if(carrier == "Alaska Airlines"){
+    } else if (carrier == "Alaska Airlines") {
         flightLink.innerHTML = `<a href="https://www.alaskaair.com/">Buy Ticket</a>`
-    }else if(carrier == "Hawaiian Airlines"){
+    } else if (carrier == "Hawaiian Airlines") {
         flightLink.innerHTML = `<a href="https://www.hawaiianairlines.com/">Buy Ticket</a>`
-    }else if(carrier == "Virgin Atlantic"){
+    } else if (carrier == "Virgin Atlantic") {
         flightLink.innerHTML = `<a href="https://www.virginatlantic.com/">Buy Ticket</a>`
-    }else if(carrier == "Air Canada"){
+    } else if (carrier == "Air Canada") {
         flightLink.innerHTML = `<a href="https://www.aircanada.com/us/en/aco/home.html">Buy Ticket</a>`
-    }else if(carrier == "Virgin America"){
+    } else if (carrier == "Virgin America") {
         flightLink.innerHTML = `<a href="https://www.virginatlantic.com/">Buy Ticket</a>`
-    }else if(carrier == "Air France"){
+    } else if (carrier == "Air France") {
         flightLink.innerHTML = `<a href="https://www.airfrance.com/">Buy Ticket</a>`
-    }else if(carrier == "Qatar Airways"){
+    } else if (carrier == "Qatar Airways") {
         flightLink.innerHTML = `<a href="https://www.qatarairways.com/en-us/homepage.html">Buy Ticket</a>`
-    }else if(carrier == "KLM Royal Dutch Airlines"){
+    } else if (carrier == "KLM Royal Dutch Airlines") {
         flightLink.innerHTML = `<a href="https://www.klm.com/">Buy Ticket</a>`
-    }else if(carrier == "Emirates"){
+    } else if (carrier == "Emirates") {
         flightLink.innerHTML = `<a href="https://www.emirates.com/us/english/">Buy Ticket</a>`
-    }else if(carrier == "Allegiant Air"){
+    } else if (carrier == "Allegiant Air") {
         flightLink.innerHTML = `<a href="https://www.allegiantair.com/">Buy Ticket</a>`
-    }else if(carrier == "Japan Airlines"){
+    } else if (carrier == "Japan Airlines") {
         flightLink.innerHTML = `<a href="https://www.jal.co.jp/jp/en/">Buy Ticket</a>`
-    }else if(carrier == "Air New Zealand"){
+    } else if (carrier == "Air New Zealand") {
         flightLink.innerHTML = `<a href="https://www.airnewzealand.com/">Buy Ticket</a>`
-    }else if(carrier == "Fly Dubai"){
+    } else if (carrier == "Fly Dubai") {
         flightLink.innerHTML = `<a href="https://www.flydubai.com/">Buy Ticket</a>`
-    }else if(carrier == "Egyptair"){
+    } else if (carrier == "Egyptair") {
         flightLink.innerHTML = `<a href="https://www.egyptair.com/">Buy Ticket</a>`
-    }else if(carrier == "Malaysia Airlines"){
+    } else if (carrier == "Malaysia Airlines") {
         flightLink.innerHTML = `<a href="https://www.malaysiaairlines.com/">Buy Ticket</a>`
-    }else if(carrier == "Turkish Airlines"){
+    } else if (carrier == "Turkish Airlines") {
         flightLink.innerHTML = `<a href="https://www.turkishairlines.com/">Buy Ticket</a>`
-    }else if(carrier == "AirAsia"){
+    } else if (carrier == "AirAsia") {
         flightLink.innerHTML = `<a href="https://www.airasia.com/en/gb">Buy Ticket</a>`
-    }else {
+    } else {
         flightLink.innerHTML = `<a href="https://www.skyscanner.com/">Buy Ticket</a>`
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,16 +1,27 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
-
 body {
-    background: #f2f2f2;
+    background-image: url('../images/pexels-stanislav-kondratiev-2909083.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
     margin: 0;
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: "Helvetica Neue", serif;
+}
+
+.container {
+    background: #e3e3e3d1;
+    margin: 5em 5em 5em 5em;
+    padding: 5em 5em 5em 5em;
+    border-radius: 3em;
+    ;
 }
 
 .menu {
     display: flex;
-    justify-content: center;
     background: #6daae1;
     width: 100%;
+    text-align: center;
 }
 
 h1 {
@@ -20,7 +31,6 @@ h1 {
 .fare-logo {
     color: white;
     font-style: italic;
-    
 }
 
 .origin-destination-container {
@@ -33,11 +43,52 @@ h1 {
     justify-content: space-around;
 }
 
-.from-to-container {
+#flightSelectionDropDown {
+    font-size: 1.5em;
+    border-radius: .5em;
+}
+
+#leaveDateTextBox {
+    font-size: 1.5em;
+    border-radius: .5em;
+}
+
+#returnDateTextBox {
+    font-size: 1.5em;
+    border-radius: .5em;
+}
+
+#numberOfPassengersDropDown {
+    font-size: 1.5em;
+    border-radius: .5em;
+}
+
+#lineImage {
+    padding: 0 .5em .3em .5em;
+}
+
+#submitBtn {
+    font-size: 1.5em;
+    width: 5em;
+    border-radius: 5em;
+    background: #155b92;
+    color: white;
+    border: #155b92;
+    padding: 0.3em 0 0.3em 0;
+    font-style: italic;
+}
+
+.fare-button-container {
+    padding: 3em;
+}
+
+.date-selection-container {}
+
+.form-group {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding-top: 3em;
+    padding: 3em;
 }
 
 .fare-button-container {
@@ -51,9 +102,85 @@ h1 {
 .flightInfo {
     display: flex;
     justify-content: space-around;
+    background: #e3e3e3d1;
+    margin: 10px;
+    border-radius: 1em;
 }
 
 .returnFlightInfo {
     display: flex;
     justify-content: space-around;
+    background: #e3e3e3d1;
+    margin: 10px;
+    border-radius: 1em;
+}
+
+.autocomplete {
+    text-align: center;
+    font-size: 36px;
+    background: transparent;
+    border: none;
+    text-decoration: underline #5c5c5c;
+}
+
+::placeholder {
+    color: #5c5c5c;
+}
+
+.control-label {
+    display: block;
+}
+
+.autocomplete-wrapper {
+    position: relative;
+    input {
+        width: 100%;
+    }
+}
+
+.autocomplete-results {
+    position: absolute;
+    background: white;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    font-size: 13px;
+    border: solid 1px #ddd;
+    border-top-width: 0;
+    border-bottom-color: #ccc;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.autocomplete-result {
+    padding: 12px 15px;
+    border-bottom: solid 1px #eee;
+    cursor: pointer;
+}
+
+.autocomplete-result:last-child {
+    border-bottom-width: 0;
+}
+
+.autocomplete-location {
+    opacity: .8;
+    font-size: smaller;
+}
+
+$iPlus: 0;
+@for $i from 0 through 7 {
+    $iPlus: $i + 1;
+    .autocomplete-results[data-highlight='#{$i}']> :nth-child(#{$iPlus}) {
+        color: white;
+        background: #26C9FF;
+        border-bottom-color: #26C9FF;
+        outline: solid 1px darken(#26C9FF, 10%);
+    }
+}
+
+@media (min-width: 600px) {
+    .menu {
+        flex-direction: column;
+        align-content: center;
+    }
+    .origin-destination-container {}
 }
