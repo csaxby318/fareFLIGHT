@@ -4,54 +4,45 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/airportAutocomplet.css" />
     <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
 
     <div class="menu">
-        <h1><span class="fare-logo">fare</span>FLIGHT</h1>
+        <h1><span class="fare-logo">fare</span>Flight</h1>
     </div>
-
-    <div id="entryContainer">
-        <div class="origin-destination-container">
-        <div class="form-group">
-
-            <input id="fromTextBox" class="autocomplete" type="text" placeholder="From" />
-        </div>
-        <!-- <div class="origin-destination-container">
-            <div class="from-to-container">
-                <input type="text" id="fromTextBox" placeholder="Origin">
-                <label>Origin</label>
-            </div> -->
-
-        <div class="form-group">
-
-            <input id="toTextBox" class="autocomplete" type="text" placeholder="To" />
-        </div>
-        <!-- <div class="from-to-container">
-                <input type="text" id="toTextBox" placeholder="Destination">
-                <label>Destination</label>
-            </div>   -->
-    </div>
-    </div>
-
-    <div class="input-dates-container">
+    <div class="container">
         <div>
-            <select name="flightSelectionDropDown" id="flightSelectionDropDown">
+            <div class="origin-destination-container">
+                <div class="form-group">
+                    <input id="fromTextBox" class="autocomplete" type="text" placeholder="From" />
+                    <label>Origin</label>
+                </div>
+
+                <div class="form-group">
+                    <input id="toTextBox" class="autocomplete" type="text" placeholder="To" />
+                    <label>Destination</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-dates-container">
+            <div>
+                <select name="flightSelectionDropDown" id="flightSelectionDropDown">
                 <option value="roundTripSelection" id="roundTripSelection">Round Trip</option>
                 <option value="oneWayTripSelection" id="oneWayTripSelection">One Way</option>
             </select>
-        </div>
+            </div>
 
-        <div class="date-selection-container">
-            <input type="date" id="leaveDateTextBox" placeholder="Leave On">
-            <input type="date" id="returnDateTextBox" placeholder="Return On">
-        </div>
+            <div class="date-selection-container">
+                <input type="date" id="leaveDateTextBox" placeholder="Leave On">
+                <img src="images/Line.svg" id="lineImage" />
+                <input type="date" id="returnDateTextBox" placeholder="Return On">
+            </div>
 
-        <div>
-            <select name="passengers" id="numberOfPassengersDropDown" required>
+            <div>
+                <select name="passengers" id="numberOfPassengersDropDown" required>
                 <option value="1">1 Passenger</option>
                 <option value="2">2 Passengers</option>
                 <option value="3">3 Passengers</option>
@@ -62,9 +53,10 @@
                 <option value="8">8 Passengers</option>
                 <option value="9">9 Passengers</option>
             </select>
+            </div>
         </div>
     </div>
-    </div>
+
     <div class="fare-button-container">
         <button id="submitBtn">fare</button>
     </div>
