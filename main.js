@@ -3,60 +3,117 @@ const fromTextBox = document.getElementById("fromTextBox")
 const toTextBox = document.getElementById("toTextBox")
 const leaveDateTextBox = document.getElementById("leaveDateTextBox")
 const returnDateTextBox = document.getElementById("returnDateTextBox")
+
+
+const flightSelectionDropDown = document.getElementById("flightSelectionDropDown")
+const roundTripSelection = document.getElementById("roundTripSelection")
+const oneWayTripSelection = document.getElementById("oneWayTripSelection")
+
+const numberOfPassengersDropDown = document.getElementById("numberOfPassengersDropDown")
+
 const submitBtn = document.getElementById("submitBtn")
 
+const dateSelectionContainer = document.getElementById("dateSelectionContainer")
 const displayFlight = document.getElementById("displayFlight")
+const displayReturnFlight = document.getElementById("displayReturnFlight")
 const flightLink = document.getElementById("flightLink")
 
 function fetchFlight(from, to, leaveDate, returnDate) {
 
-    fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${from}-sky/${to}-sky/${leaveDate}?inboundpartialdate=${returnDate}`, {
+    fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${from}-sky/${to}-sky/${leaveDate}?inboundpartialdate=`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "e118aa187bmsh51dce0dd58837e0p1bcfe5jsn469699bec0df",
 		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
 	}
-}).then(response => {
-	console.log(response);
-    return response.json();
-}).then((result) => {
-    console.log(result);
-    flightDisplay(result)
-    carrierRedirectLink(result.Carriers[0].Name)
-}).catch(err => {
-	console.error(err);
-});
+    }).then(response => {
+        console.log(response);
+        return response.json();
+    }).then((result) => {
+        console.log(result);
+        flightDisplay(result)
+        carrierRedirectLink(result.Carriers[0].Name)
+    }).catch(err => {
+        console.error(err);
+    });
+
+    fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${to}-sky/${from}-sky/${returnDate}?inboundpartialdate=`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "e118aa187bmsh51dce0dd58837e0p1bcfe5jsn469699bec0df",
+            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+        }
+    }).then(response => {
+        console.log(response);
+        return response.json();
+    }).then((result2) => {
+        console.log(result2);
+        flightReturnDisplay(result2)
+        carrierRedirectLink(result2.Carriers[0].Name)
+    }).catch(err => {
+        console.error(err);
+    });
 }
 
 function flightDisplay(result) {
-
+    
     let date = result.Quotes[0].OutboundLeg.DepartureDate
     let formattedDate = date.slice(6, 10) + "-" + date.slice(0, 4)
-    
+    let priceByPassengers = result.Quotes[0].MinPrice * globalNumOfPassengers
+
     displayFlight.innerHTML = `
-                            <div class="flightInfo">
-                                <h2>${result.Carriers[0].Name}</h2>
-                                <p>${formattedDate}</p>
-                                <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
-                                <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
-                                <p>$${result.Quotes[0].MinPrice}</p>
-                                
-                            </div>
-                         `
+        <div class="flightInfo">
+            <h2>${result.Carriers[0].Name}</h2>
+            <p>${formattedDate}</p>
+            <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
+            <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
+            <p>$${priceByPassengers}</p>
+        </div>
+    `
 }
 
+function flightReturnDisplay(result2) {
+    
+    let date = result2.Quotes[0].OutboundLeg.DepartureDate
+    let formattedDate = date.slice(6, 10) + "-" + date.slice(0, 4)
+    let priceByPassengers = result2.Quotes[0].MinPrice * globalNumOfPassengers
+
+    displayReturnFlight.innerHTML = `
+        <div class="returnFlightInfo">
+            <h2>${result2.Carriers[0].Name}</h2>
+            <p>${formattedDate}</p>
+            <p>From: ${result2.Places[1].Name} (${result2.Places[1].IataCode})</p>
+            <p>To: ${result2.Places[0].Name} (${result2.Places[0].IataCode})</p>
+            <p>$${priceByPassengers}</p>
+        </div>
+    `
+}
+
+flightSelectionDropDown.addEventListener('change', function() {
+
+    if (flightSelectionDropDown.value == "oneWayTripSelection") {
+        returnDateTextBox.style.display = "none"
+    } else if (flightSelectionDropDown.value == "roundTripSelection") {
+        returnDateTextBox.style.display = ""
+    }
+})
+
 submitBtn.addEventListener('click', function() {
+    console.log(numberOfPassengersDropDown.value)
 
     const from = fromTextBox.value 
     const to = toTextBox.value 
     const leaveDate = leaveDateTextBox.value 
-    const returnDate = returnDateTextBox.value 
+    const returnDate = returnDateTextBox.value
+    const numberOfPassengers = numberOfPassengersDropDown.value
+    globalNumOfPassengers = numberOfPassengers 
 
     fetchFlight(from, to, leaveDate, returnDate)
     fromTextBox.value = ''
     toTextBox.value = ''
     leaveDateTextBox.value = ''
     returnDateTextBox.value = ''
+    numberOfPassengersDropDown.value = 'none'
 })
 
 function carrierRedirectLink(carrier) {
@@ -120,16 +177,21 @@ function carrierRedirectLink(carrier) {
 
 
 
-fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=Atlanta", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "e118aa187bmsh51dce0dd58837e0p1bcfe5jsn469699bec0df",
-		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
-	}
-})
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.error(err);
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

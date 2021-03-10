@@ -1,21 +1,68 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <input type="text" id="fromTextBox" placeholder="Origin">
-        <input type="text" id="toTextBox" placeholder="Destination">
-        <input type="date" id="leaveDateTextBox" placeholder="Leave On">
-        <input type="date" id="returnDateTextBox" placeholder="Return On">
-        <button id="submitBtn">Search Flight</button>
+
+        <div class="form-group">
+            <label class="control-label">Enter an Airport</label>
+            <input id="fromTextBox" class="autocomplete" type="text" />
+          </div>
+          
+          <div class="form-group">
+            <label class="control-label">Enter something else</label>
+            <input id="toTextBox" class="autocomplete" type="text" />
+          </div>
+          
+          
+
+        
+        <select name="flightSelectionDropDown" id="flightSelectionDropDown">
+            <option value="roundTripSelection" id="roundTripSelection">Round Trip</option>
+            <option value="oneWayTripSelection" id="oneWayTripSelection">One Way</option>  
+        </select>
+        <div id="dateSelectionContainer">        
+            <input type="date" id="leaveDateTextBox" placeholder="Leave On">
+            <input type="date" id="returnDateTextBox" placeholder="Return On">
+        </div>
+        <div>
+            <select name="passengers" id="numberOfPassengersDropDown" required>
+                <option value="none" disabled selected hidden>Number of passengers</option>
+                <option value="1">1 Passenger</option>
+                <option value="2">2 Passengers</option>
+                <option value="3">3 Passengers</option>
+                <option value="4">4 Passengers</option>
+                <option value="5">5 Passengers</option>
+                <option value="6">6 Passengers</option>
+                <option value="7">7 Passengers</option>
+                <option value="8">8 Passengers</option>
+                <option value="9">9 Passengers</option>
+            </select>
+        </div>
+
+        <button id="submitBtn">fare</button>
         <br>
         
         <div id="displayFlight">
 
         </div>
+        <div id="displayReturnFlight">
+
+        </div>
         <div id="flightLink"></div>
 
+
+
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.1/lodash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://unpkg.com/fuse.js@2.5.0/src/fuse.min.js"></script>
+        <script src="https://screenfeedcontent.blob.core.windows.net/html/airports.js"></script>
+        <script src="./autocompleteAirport.js"></script>
         <script src="./main.js"></script>
     </body>
 </html>
