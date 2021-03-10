@@ -113,7 +113,7 @@ submitBtn.addEventListener('click', function() {
     toTextBox.value = ''
     leaveDateTextBox.value = ''
     returnDateTextBox.value = ''
-    numberOfPassengersDropDown.value = 'none'
+    numberOfPassengersDropDown.value = '1'
 })
 
 function carrierRedirectLink(carrier) {
