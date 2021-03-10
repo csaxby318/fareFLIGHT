@@ -1,1 +1,35 @@
 /* No CSS *//*# sourceMappingURL=main.css.map */
+
+body {
+    background: #f2f2f2
+    margin: 0;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+.origin-destination-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.input-dates-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fare-button-container {
+    text-align: center;
+}
+
+.displaycontainer {
+    display: flex;
+}
+
+.flightInfo {
+    display: flex;
+    justify-content: space-around;
+}
+
+.returnFlightInfo {
+    display: flex;
+    justify-content: space-around;
+}
