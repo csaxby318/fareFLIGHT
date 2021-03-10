@@ -113,7 +113,7 @@ submitBtn.addEventListener('click', function() {
     toTextBox.value = ''
     leaveDateTextBox.value = ''
     returnDateTextBox.value = ''
-    numberOfPassengersDropDown.value = 'none'
+    numberOfPassengersDropDown.value = '1'
 })
 
 function carrierRedirectLink(carrier) {
@@ -169,4 +169,3 @@ function carrierRedirectLink(carrier) {
     }else {
         flightLink.innerHTML = `<a href="https://www.skyscanner.com/">Buy Ticket</a>`
     }
-}

@@ -1,45 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="css/main.css"/>
-    </head>
-    <body>
-        <input type="text" id="fromTextBox" placeholder="Origin">
-        <input type="text" id="toTextBox" placeholder="Destination">
-        <select name="flightSelectionDropDown" id="flightSelectionDropDown">
-            <option value="roundTripSelection" id="roundTripSelection">Round Trip</option>
-            <option value="oneWayTripSelection" id="oneWayTripSelection">One Way</option>  
-        </select>
-        <div id="dateSelectionContainer">        
-            <input type="date" id="leaveDateTextBox" placeholder="Leave On">
-            <input type="date" id="returnDateTextBox" placeholder="Return On">
-        </div>
-        <div>
-            <select name="passengers" id="numberOfPassengersDropDown" required>
-                <option value="none" disabled selected hidden>Number of passengers</option>
-                <option value="1">1 Passenger</option>
-                <option value="2">2 Passengers</option>
-                <option value="3">3 Passengers</option>
-                <option value="4">4 Passengers</option>
-                <option value="5">5 Passengers</option>
-                <option value="6">6 Passengers</option>
-                <option value="7">7 Passengers</option>
-                <option value="8">8 Passengers</option>
-                <option value="9">9 Passengers</option>
-            </select>
+
+<head>
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+    <label>TEST</label>
+    <div id="entryContainer">
+
+        <div class="origin-destination-container">
+            <div>
+                <input type="text" id="fromTextBox" placeholder="Origin">
+            </div>
+
+            <div>
+                <input type="text" id="toTextBox" placeholder="Destination">
+            </div>  
         </div>
 
+        <div class="input-dates-container">
+            <div>
+                <select name="flightSelectionDropDown" id="flightSelectionDropDown">
+                    <option value="roundTripSelection" id="roundTripSelection">Round Trip</option>
+                    <option value="oneWayTripSelection" id="oneWayTripSelection">One Way</option>
+                </select>
+            </div>
+
+            <div class="date-selection-container">
+                <input type="date" id="leaveDateTextBox" placeholder="Leave On">
+                <input type="date" id="returnDateTextBox" placeholder="Return On">
+            </div>
+
+            <div>
+                <select name="passengers" id="numberOfPassengersDropDown" required>
+                    <option value="1">1 Passenger</option>
+                    <option value="2">2 Passengers</option>
+                    <option value="3">3 Passengers</option>
+                    <option value="4">4 Passengers</option>
+                    <option value="5">5 Passengers</option>
+                    <option value="6">6 Passengers</option>
+                    <option value="7">7 Passengers</option>
+                    <option value="8">8 Passengers</option>
+                    <option value="9">9 Passengers</option>
+                </select>   
+            </div>
+        </div>
+    </div>
+    <div class="fare-button-container">
         <button id="submitBtn">fare</button>
-        <br>
-        
-        <div id="displayFlight">
+    </div>
+    
+    <br>
 
-        </div>
-        <div id="displayReturnFlight">
-
-        </div>
+    <div class="display-container">
+        <div id="displayFlight"></div>
+        <div id="displayReturnFlight"></div>
         <div id="flightLink"></div>
+    </div>
 
-        <script src="./main.js"></script>
-    </body>
+
+
+
+    <script src="./main.js"></script>
+</body>
 </html>
