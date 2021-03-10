@@ -169,3 +169,4 @@ function carrierRedirectLink(carrier) {
     }else {
         flightLink.innerHTML = `<a href="https://www.skyscanner.com/">Buy Ticket</a>`
     }
+}
