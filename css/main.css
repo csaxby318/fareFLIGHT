@@ -45,13 +45,6 @@ h1 {
     font-style: italic;
 }
 
-/* .origin-destination-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 0em 10em 4em 10em;
-    width: 100px;
-} */
-
 .input-dates-container {
     display: flex;
     justify-content: space-around;
@@ -192,6 +185,13 @@ h1 {
 .autocomplete-location {
     opacity: .8;
     font-size: smaller;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
 }
 
 $iPlus: 0;
