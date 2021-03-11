@@ -28,4 +28,23 @@ FREE FREE FREE FREE to use.
   
  ## Features
  
+ ## Code Example
+ 
+ ## Installation
+ 
+ ## API Reference
+ RapidAPI - Skyscanner
+ https://rapidapi.com/skyscanner/api/skyscanner-flight-search
+ 
+ ## Tests
+ 
+ ## How to use
+ 1. In the 'From' box, fill out the airport you will be leaving from.
+ 2. In the 'To' box, fill out the airport you will be arriving in.
+ 3. Select 'One Way' or 'Round Trip' in the dropdown box.
+ 4. Fill out the date you will leave and the date you will come home. You can click the calendar to easily select dates.
+ 5. Select how many passengers you would like pricing for.
+ 6. Click the 'fare' button to see the least expensive flight available. There will be two flights displayed if 'Round Trip' is selected.
+ 7. Click the pricing box from the flight displayed to follow a link to the Carrier's website. From there, you may search the desired flight for purchase.
+ 
  
