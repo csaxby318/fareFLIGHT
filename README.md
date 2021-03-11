@@ -10,7 +10,7 @@ may be influenced by a Carrier to display their flights at the top. With fareFli
 and the most inexpensive flight option available from your selected Origin to your selected Destination. After a flight is found, 
 a link is provided to send you to the Carrier's site for actual purchase. With today's fear of personal data breaches, our app 
 specifically will not collect any User data. 
-FREE FREE FREE FREE to use.
+FREE to use.
  
 ## Live Website
 http://sweet-frame.surge.sh/
