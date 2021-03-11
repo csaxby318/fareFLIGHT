@@ -112,7 +112,8 @@ flightSelectionDropDown.addEventListener('change', function() {
 })
 
 submitBtn.addEventListener('click', function() {
-    console.log(numberOfPassengersDropDown.value)
+    displayFlight.innerHTML = ""
+    displayReturnFlight.innerHTML = ""
 
     const from = fromTextBox.value
     const to = toTextBox.value
