@@ -4,7 +4,7 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     font-family: "Helvetica Neue", serif;
 }
@@ -197,6 +197,7 @@ footer {
     bottom: 0;
     width: 100%;
     color: white;
+    height: 0.3em;
 }
 
 $iPlus: 0;
