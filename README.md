@@ -15,8 +15,10 @@ FREE FREE FREE FREE to use.
 ## Challenges and Solutions
  
 ## Build Status
+Working Version 1.0
  
 ## Code Style
+ Standard
  
 ## Screenshots
  
