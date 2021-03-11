@@ -12,7 +12,8 @@ a link is provided to send you to the Carrier's site for actual purchase. With t
 specifically will not collect any User data. 
 FREE FREE FREE FREE to use.
  
-## Challenges and Solutions
+## Live Website
+http://sweet-frame.surge.sh/
  
 ## Build Status
 Working Version 1.0
@@ -27,19 +28,11 @@ Working Version 1.0
   <b>Built With</b>
   Skyscanner Flight Search API from Rapid API
   https://rapidapi.com/skyscanner/api/skyscanner-flight-search?endpoint=5a9c9edde4b084deb4ea6195
-  
-## Features
- 
-## Code Example
- 
-## Installation
- 
+   
 ## API Reference
  RapidAPI - Skyscanner
  https://rapidapi.com/skyscanner/api/skyscanner-flight-search
- 
-## Tests
- 
+  
 ## How to use
  1. In the 'From' box, fill out the airport you will be leaving from.
  2. In the 'To' box, fill out the airport you will be arriving in.
@@ -48,8 +41,6 @@ Working Version 1.0
  5. Select how many passengers you would like pricing for.
  6. Click the 'fare' button to see the least expensive flight available. There will be two flights displayed if 'Round Trip' is selected.
  7. Click the pricing box from the flight displayed to follow a link to the Carrier's website. From there, you may search the desired flight for purchase.
-
-## Contribute
 
 ## Credits
 Huge thanks from our Team to RapidAPI and Skyscanner API for the free use of their API to make our flight searching possible.
