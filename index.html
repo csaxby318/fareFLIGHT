@@ -14,46 +14,45 @@
         <h1><span class="fare-logo">fare</span>Flight</h1>
     </div>
     <div class="container">
-        <div>
-            <div class="origin-destination-container">
-                <div class="form-group">
-                    <input id="fromTextBox" class="autocomplete" type="text" placeholder="From" />
-                    <label>Origin</label>
-                </div>
+    
+        <div class="row-top-container">
+            <div class="form-group">
+                <input id="fromTextBox" class="autocomplete" type="text" placeholder="From" />
+                <label>Origin</label>
+            </div>
 
-                <div class="form-group">
-                    <input id="toTextBox" class="autocomplete" type="text" placeholder="To" />
-                    <label>Destination</label>
-                </div>
+            <div class="form-group">
+                <input id="toTextBox" class="autocomplete" type="text" placeholder="To" />
+                <label>Destination</label>
             </div>
         </div>
 
-        <div class="input-dates-container">
+        <div class="row-bottom-container">
             <div>
                 <select name="flightSelectionDropDown" id="flightSelectionDropDown">
-                <option value="roundTripSelection" id="roundTripSelection">Round Trip</option>
-                <option value="oneWayTripSelection" id="oneWayTripSelection">One Way</option>
-            </select>
+                    <option value="roundTripSelection" id="roundTripSelection">Round Trip</option>
+                    <option value="oneWayTripSelection" id="oneWayTripSelection">One Way</option>
+                </select>
             </div>
 
             <div class="date-selection-container">
-                <input type="date" id="leaveDateTextBox" placeholder="Leave On">
+                <input type="text" id="leaveDateTextBox" placeholder="Depart" onfocus="(this.type='date')" onblur="(this.type='text')">
                 <img src="images/Line.svg" id="lineImage" />
-                <input type="date" id="returnDateTextBox" placeholder="Return On">
+                <input type="text" id="returnDateTextBox" placeholder="Return" onfocus="(this.type='date')" onblur="(this.type='text')">
             </div>
 
             <div>
                 <select name="passengers" id="numberOfPassengersDropDown" required>
-                <option value="1">1 Passenger</option>
-                <option value="2">2 Passengers</option>
-                <option value="3">3 Passengers</option>
-                <option value="4">4 Passengers</option>
-                <option value="5">5 Passengers</option>
-                <option value="6">6 Passengers</option>
-                <option value="7">7 Passengers</option>
-                <option value="8">8 Passengers</option>
-                <option value="9">9 Passengers</option>
-            </select>
+                    <option value="1">1 Passenger</option>
+                    <option value="2">2 Passengers</option>
+                    <option value="3">3 Passengers</option>
+                    <option value="4">4 Passengers</option>
+                    <option value="5">5 Passengers</option>
+                    <option value="6">6 Passengers</option>
+                    <option value="7">7 Passengers</option>
+                    <option value="8">8 Passengers</option>
+                    <option value="9">9 Passengers</option>
+                </select>
             </div>
         </div>
     </div>
