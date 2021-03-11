@@ -19,7 +19,7 @@ body {
 .menu {
     display: flex;
     background: #155b92;
-    width: 100%;
+    width: 100vw;
     text-align: center;
     justify-content: center;
 }
