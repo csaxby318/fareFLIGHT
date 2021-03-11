@@ -115,6 +115,11 @@ h1 {
     border-radius: 1em;
 }
 
+#flightLink {
+    text-decoration: none;
+    color: black;
+}
+
 .autocomplete {
     text-align: center;
     font-size: 36px;

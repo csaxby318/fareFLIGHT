@@ -62,13 +62,15 @@ function flightDisplay(result) {
     let priceByPassengers = result.Quotes[0].MinPrice * globalNumOfPassengers
 
     displayFlight.innerHTML = `
-        <div class="flightInfo">
-            <h2>${result.Carriers[0].Name}</h2>
-            <p>${formattedDate}</p>
-            <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
-            <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
-            <p>$${priceByPassengers}</p>
-        </div>
+        <a target="_blank" id="flightLink" href="https://www.skyscanner.com/">
+            <div class="flightInfo">
+                <h2>${result.Carriers[0].Name}</h2>
+                <p>${formattedDate}</p>
+                <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
+                <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
+                <p>$${priceByPassengers}</p>
+            </div>
+        </a>
     `
 }
 
@@ -79,13 +81,15 @@ function flightReturnDisplay(result2) {
     let priceByPassengers = result2.Quotes[0].MinPrice * globalNumOfPassengers
 
     displayReturnFlight.innerHTML = `
-        <div class="returnFlightInfo">
-            <h2>${result2.Carriers[0].Name}</h2>
-            <p>${formattedDate}</p>
-            <p>From: ${result2.Places[1].Name} (${result2.Places[1].IataCode})</p>
-            <p>To: ${result2.Places[0].Name} (${result2.Places[0].IataCode})</p>
-            <p>$${priceByPassengers}</p>
-        </div>
+        <a target="_blank" id="flightLink" href="https://www.skyscanner.com/">
+            <div class="returnFlightInfo">
+                <h2>${result2.Carriers[0].Name}</h2>
+                <p>${formattedDate}</p>
+                <p>From: ${result2.Places[1].Name} (${result2.Places[1].IataCode})</p>
+                <p>To: ${result2.Places[0].Name} (${result2.Places[0].IataCode})</p>
+                <p>$${priceByPassengers}</p>
+            </div>
+        </a>
     `
 }
 
@@ -121,54 +125,54 @@ submitBtn.addEventListener('click', function() {
 function carrierRedirectLink(carrier) {
 
     if (carrier == "Spirit Airlines") {
-        flightLink.innerHTML = `<a href="https://www.spirit.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.spirit.com/";
     } else if (carrier == "Frontier Airlines") {
-        flightLink.innerHTML = `<a href="https://www.flyfrontier.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.flyfrontier.com/";
     } else if (carrier == "American Airlines") {
-        flightLink.innerHTML = `<a href="https://www.aa.com/homePage.do">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.aa.com/homePage.do";
     } else if (carrier == "Delta") {
-        flightLink.innerHTML = `<a href="https://www.delta.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.delta.com/";
     } else if (carrier == "United") {
-        flightLink.innerHTML = `<a href="https://www.united.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.united.com/";
     } else if (carrier == "jetBlue") {
-        flightLink.innerHTML = `<a href="https://www.jetblue.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.jetblue.com/";
     } else if (carrier == "Southwest Airlines") {
-        flightLink.innerHTML = `<a href="https://www.southwest.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.southwest.com/";
     } else if (carrier == "Alaska Airlines") {
-        flightLink.innerHTML = `<a href="https://www.alaskaair.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.alaskaair.com/";
     } else if (carrier == "Hawaiian Airlines") {
-        flightLink.innerHTML = `<a href="https://www.hawaiianairlines.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.hawaiianairlines.com/";
     } else if (carrier == "Virgin Atlantic") {
-        flightLink.innerHTML = `<a href="https://www.virginatlantic.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.virginatlantic.com/";
     } else if (carrier == "Air Canada") {
-        flightLink.innerHTML = `<a href="https://www.aircanada.com/us/en/aco/home.html">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.aircanada.com/us/en/aco/home.html";
     } else if (carrier == "Virgin America") {
-        flightLink.innerHTML = `<a href="https://www.virginatlantic.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.virginatlantic.com/";
     } else if (carrier == "Air France") {
-        flightLink.innerHTML = `<a href="https://www.airfrance.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.airfrance.com/";
     } else if (carrier == "Qatar Airways") {
-        flightLink.innerHTML = `<a href="https://www.qatarairways.com/en-us/homepage.html">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.qatarairways.com/en-us/homepage.html";
     } else if (carrier == "KLM Royal Dutch Airlines") {
-        flightLink.innerHTML = `<a href="https://www.klm.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.klm.com/";
     } else if (carrier == "Emirates") {
-        flightLink.innerHTML = `<a href="https://www.emirates.com/us/english/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.emirates.com/us/english/";
     } else if (carrier == "Allegiant Air") {
-        flightLink.innerHTML = `<a href="https://www.allegiantair.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.allegiantair.com/";
     } else if (carrier == "Japan Airlines") {
-        flightLink.innerHTML = `<a href="https://www.jal.co.jp/jp/en/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.jal.co.jp/jp/en/";
     } else if (carrier == "Air New Zealand") {
-        flightLink.innerHTML = `<a href="https://www.airnewzealand.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.airnewzealand.com/";
     } else if (carrier == "Fly Dubai") {
-        flightLink.innerHTML = `<a href="https://www.flydubai.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.flydubai.com/";
     } else if (carrier == "Egyptair") {
-        flightLink.innerHTML = `<a href="https://www.egyptair.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.egyptair.com/";
     } else if (carrier == "Malaysia Airlines") {
-        flightLink.innerHTML = `<a href="https://www.malaysiaairlines.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.malaysiaairlines.com/";
     } else if (carrier == "Turkish Airlines") {
-        flightLink.innerHTML = `<a href="https://www.turkishairlines.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.turkishairlines.com/";
     } else if (carrier == "AirAsia") {
-        flightLink.innerHTML = `<a href="https://www.airasia.com/en/gb">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.airasia.com/en/gb";
     } else {
-        flightLink.innerHTML = `<a href="https://www.skyscanner.com/">Buy Ticket</a>`
+        document.getElementById("flightLink").href = "https://www.skyscanner.com/";
     }
 }
