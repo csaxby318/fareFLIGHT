@@ -101,6 +101,7 @@ flightSelectionDropDown.addEventListener('change', function() {
 
     } else if (flightSelectionDropDown.value == "roundTripSelection") {
         returnDateTextBox.style.display = ""
+        lineImage.style.display = ""
     }
 })
 
