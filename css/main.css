@@ -105,6 +105,11 @@ label {
     font-style: italic;
 }
 
+#submitBtn:hover {
+    background: #0d3d61;
+    font-weight: bold;
+}
+
 .fare-button-container {
     padding: 1em;
 }
@@ -129,6 +134,11 @@ label {
     background: #c9def197;
     margin: 10px;
     border-radius: 1em;
+    color: #155b92;
+}
+
+.flightInfo:hover {
+    background: #a0c7e9c8;
 }
 
 .returnFlightInfo {
@@ -137,7 +147,13 @@ label {
     background: #c9def197;
     margin: 10px;
     border-radius: 1em;
+    color: #155b92;
 }
+
+.returnFlightInfo:hover {
+    background: #a0c7e9c8;
+}
+
 .dateDisplay {
     font-size: 1.2em;
 }
