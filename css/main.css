@@ -21,6 +21,11 @@ h1 {
     color: #92cafb;
 }
 
+h2 {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .fare-logo {
     color: white;
     font-style: italic;
@@ -72,7 +77,7 @@ label {
 #returnDateTextBox {
     font-size: 1.5em;
     border-radius: .5em;
-    padding: .3em .3em .3em .3em;
+    padding: 0.3em .3em .3em .3em;
     text-align: center;
     border: none;
     width: 200px;
@@ -133,6 +138,30 @@ label {
     margin: 10px;
     border-radius: 1em;
 }
+.dateDisplay {
+    font-size: 1.2em;
+}
+.mapArrow {
+    padding: 0 1em 0 1em;
+}
+#mapArrowReverse {
+    transform: rotateY(180deg);
+}
+.mapArrowWithNames {
+    display: flex;
+    justify-content: center;
+    padding: 2em 0 2em 0;
+}
+
+p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.priceDisplay {
+    font-size: 1.2em;
+    font-weight: bold;
+}
 
 #flightLink {
     text-decoration: none;
@@ -192,6 +221,11 @@ label {
     min-height: 100vh;
 }
 
+.spaceDiv {
+    width: 100%;
+    min-height: 1em;
+}
+
 footer {
     position: absolute;
     bottom: 0;
@@ -211,7 +245,7 @@ $iPlus: 0;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 618px) {
     body {
         background-image: none;
         background: #f2f2f2;
@@ -268,6 +302,128 @@ $iPlus: 0;
         text-align: center;
         margin: 1em;
     }
+    h2 {
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+    .priceDisplay {
+        margin-bottom: 1em;
+    }
+
+    footer {
+        width: 100%;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 1364px) and (min-width: 800px) {
+    body {
+        background-image: none;
+        background: #f2f2f2;
+    }
+    .container {
+        flex-direction: column;
+        margin: 1em;
+    }
+    .autocomplete {
+        font-size: 2em;
+        width: 150px;
+    }
+    .row-top-container {
+        margin-bottom: 2em;
+        justify-content: center;
+
+    }
+    .row-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+    }
+    #flightSelectionDropDown {
+        font-size: 1.2em;
+        margin: 1em;
+    }
+    #leaveDateTextBox {
+        font-size: 1.2em;
+        width: 10em;
+        margin: 1em;
+    }
+    #returnDateTextBox {
+        font-size: 1.2em;
+        width: 10em;
+        margin: 1em;
+    }
+    #numberOfPassengersDropDown {
+        font-size: 1.2em;
+        margin: 1em;
+    }
+}
+
+@media (max-width: 800px) and (min-width: 618px) {
+    body {
+        background-image: none;
+        background: #f2f2f2;
+    }
+    .menu {
+        width: 100%;
+    }
+    .container {
+        flex-direction: column;
+        margin: 1em;
+    }
+    .autocomplete {
+        font-size: 2em;
+        width: 150px;
+    }
+    .row-top-container {
+        margin-bottom: 2em;
+        justify-content: center;
+
+    }
+    .row-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+    }
+    #flightSelectionDropDown {
+        font-size: 1.2em;
+        margin: 1em;
+    }
+    #leaveDateTextBox {
+        font-size: 1.2em;
+        width: 10em;
+        margin: 1em;
+    }
+    #lineImage {
+        display: none;
+    }
+    #returnDateTextBox {
+        font-size: 1.2em;
+        width: 10em;
+        margin: 1em;
+    }
+    #numberOfPassengersDropDown {
+        font-size: 1.2em;
+        margin: 1em;
+    }
+    .flightInfo {
+        flex-direction: column;
+        text-align: center;
+        margin: 1em;
+    }
+    .returnFlightInfo {
+        flex-direction: column;
+        text-align: center;
+        margin: 1em;
+    }
+    h2 {
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+    .priceDisplay {
+        margin-bottom: 1em;
+    }
+
     footer {
         width: 100%;
         bottom: 0;
