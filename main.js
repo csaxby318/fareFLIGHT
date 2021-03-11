@@ -115,10 +115,13 @@ submitBtn.addEventListener('click', function() {
     displayFlight.innerHTML = ""
     displayReturnFlight.innerHTML = ""
 
+    date = leaveDateTextBox.value
+    formattedDate = date.slice(6,10) + "-" + date.slice(0,2) + "-" + date.slice(3,5)
+
     const from = fromTextBox.value
     const to = toTextBox.value
-    const leaveDate = leaveDateTextBox.value
-    const returnDate = returnDateTextBox.value
+    const leaveDate = formattedDate
+    const returnDate = formattedDate
     const numberOfPassengers = numberOfPassengersDropDown.value
     globalNumOfPassengers = numberOfPassengers
 

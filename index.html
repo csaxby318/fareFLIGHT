@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
+    <!-- Not all who wander are lost - J.R.R. Tolkien -->
 
 <head>
     <title>fareFlight</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 
 <body>
@@ -36,9 +39,9 @@
             </div>
 
             <div class="date-selection-container">
-                <input type="text" id="leaveDateTextBox" placeholder="Depart" onfocus="(this.type='date')" onblur="(this.type='text')">
+                <input type="text" id="leaveDateTextBox" class="datepicker" placeholder="Depart">
                 <img src="images/Line.svg" id="lineImage" />
-                <input type="text" id="returnDateTextBox" placeholder="Return" onfocus="(this.type='date')" onblur="(this.type='text')">
+                <input type="text" id="returnDateTextBox" class="datepicker" placeholder="Return">
             </div>
 
             <div>
@@ -81,6 +84,13 @@
     <script src="https://unpkg.com/fuse.js@2.5.0/src/fuse.min.js"></script>
     <script src="https://screenfeedcontent.blob.core.windows.net/html/airports.js"></script>
     <script src="./autocompleteAirport.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( ".datepicker" ).datepicker();
+  } );
+  </script>
     <script src="./main.js"></script>
 </body>
 
