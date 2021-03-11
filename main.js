@@ -65,10 +65,13 @@ function flightDisplay(result) {
         <a target="_blank" id="flightLink" href="https://www.skyscanner.com/">
             <div class="flightInfo">
                 <h2>${result.Carriers[0].Name}</h2>
-                <p>${formattedDate}</p>
-                <p>From: ${result.Places[0].Name} (${result.Places[0].IataCode})</p>
-                <p>To: ${result.Places[1].Name} (${result.Places[1].IataCode})</p>
-                <p>$${priceByPassengers}</p>
+                <p class="dateDisplay">${formattedDate}</p>
+                <div class="mapArrowWithNames">
+                    <p>${result.Places[0].IataCode}</p>
+                    <img src="images/map-arrow.svg" id="mapArrow" class="mapArrow"/>
+                    <p>${result.Places[1].IataCode}</p>
+                </div>
+                <p class="priceDisplay">$${priceByPassengers}</p>
             </div>
         </a>
     `
@@ -84,10 +87,13 @@ function flightReturnDisplay(result2) {
         <a target="_blank" id="flightLink" href="https://www.skyscanner.com/">
             <div class="returnFlightInfo">
                 <h2>${result2.Carriers[0].Name}</h2>
-                <p>${formattedDate}</p>
-                <p>From: ${result2.Places[1].Name} (${result2.Places[1].IataCode})</p>
-                <p>To: ${result2.Places[0].Name} (${result2.Places[0].IataCode})</p>
-                <p>$${priceByPassengers}</p>
+                <p class="dateDisplay">${formattedDate}</p>
+                <div class="mapArrowWithNames">
+                    <p>${result2.Places[0].IataCode}</p>
+                    <img src="images/map-arrow.svg" id="mapArrowReverse" class="mapArrow"/>
+                    <p>${result2.Places[1].IataCode}</p>
+                </div>
+                <p class="priceDisplay">$${priceByPassengers}</p>
             </div>
         </a>
     `
