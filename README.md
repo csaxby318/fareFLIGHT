@@ -17,10 +17,7 @@ http://fareflight.surge.sh/
  
 ## Build Status
 Working Version 1.0
- 
-## Code Style
- Standard
- 
+  
 ## Screenshots
  
 ## Tech/Framework used
@@ -44,7 +41,6 @@ Working Version 1.0
 
 ## Credits
 Huge thanks from our Team to RapidAPI and Skyscanner API for the free use of their API to make our flight searching possible.
-Thanks to imdunn from Codepen.io for the help with the airport code autocomplete text box.
 Thanks to Pexels.com for the high-resolution images of clouds.
 Biggest thanks to Clarence Saxby, Shawn Saj, William Ezrine, and Zack Hurst for working on the project as individuals and as a Team. 
  
