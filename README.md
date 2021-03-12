@@ -38,11 +38,12 @@ Working Version 1.0
  4. Fill out the date you will leave and the date you will come home. You can click the calendar to easily select dates.
  5. Select how many passengers you would like pricing for.
  6. Click the 'fare' button to see the least expensive flight available. There will be two flights displayed if 'Round Trip' is selected.
- 7. Click the pricing box from the flight displayed to follow a link to the Carrier's website. From there, you may search the desired flight for purchase.
+ 7. Click the pricing box from the flight displayed to follow a link to Skyscanner's website wehere the user will be able to select their flight and purchase on the specific Carrier's website.
 
 ## Credits
 Huge thanks from our Team to RapidAPI and Skyscanner API for the free use of their API to make our flight searching possible.
 Thanks to Pexels.com for the high-resolution images of clouds.
+Thanks to CodePen.io users for the 'datepicker' and 'airport autofill' examples.
 Biggest thanks to Clarence Saxby, Shawn Saj, William Ezrine, and Zack Hurst for working on the project as individuals and as a Team. 
  
  
