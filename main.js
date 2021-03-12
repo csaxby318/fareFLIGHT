@@ -107,6 +107,7 @@ flightSelectionDropDown.addEventListener('change', function() {
 
     if (flightSelectionDropDown.value == "oneWayTripSelection") {
         returnDateTextBox.style.display = "none"
+        returnDateTextBox.value = ""
         lineImage.style.display = "none"
 
     } else if (flightSelectionDropDown.value == "roundTripSelection") {
