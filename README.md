@@ -19,6 +19,7 @@ http://fareflight.surge.sh/
 Working Version 1.0
   
 ## Screenshots
+![How-to-use-desktop-version](https://user-images.githubusercontent.com/77455948/110960180-7cbcc100-831c-11eb-8180-5296b58a7d49.gif)
  
 ## Tech/Framework used
  
