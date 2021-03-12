@@ -183,6 +183,11 @@ p {
     text-decoration: none;
     color: black;
 }
+.errorAlert {
+    color: red;
+    text-align: center;
+    font-size: 1em;
+}
 
 .autocomplete {
     text-align: center;

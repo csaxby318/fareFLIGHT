@@ -34,6 +34,7 @@ function fetchFlight(from, to, leaveDate, returnDate) {
         flightDisplay(result)
         carrierRedirectLink(result.Carriers[0].Name)
     }).catch(err => {
+        displayFlight.innerHTML = `<h6 class="errorAlert">The flight you are searching is not available</h6>`
         console.error(err);
     });
 
@@ -51,6 +52,9 @@ function fetchFlight(from, to, leaveDate, returnDate) {
         flightReturnDisplay(result2)
         carrierRedirectLink(result2.Carriers[0].Name)
     }).catch(err => {
+        if (flightSelectionDropDown.value == "roundTripSelection") {
+            displayReturnFlight.innerHTML = `<h6 class="errorAlert">The return flight you are searching is not available</h6>`
+        }
         console.error(err);
     });
 }
