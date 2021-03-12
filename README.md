@@ -13,7 +13,7 @@ specifically will not collect any User data.
 FREE to use.
  
 ## Live Website
-http://sweet-frame.surge.sh/
+http://fareflight.surge.sh/
  
 ## Build Status
 Working Version 1.0
