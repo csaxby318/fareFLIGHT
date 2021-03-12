@@ -20,6 +20,7 @@ Working Version 1.0
   
 ## Screenshots
 <img src="https://user-images.githubusercontent.com/77455948/110971274-a845a880-8328-11eb-82da-a2bfa15860cd.png" width="15%"></img> <img src="https://user-images.githubusercontent.com/77455948/110971281-aa0f6c00-8328-11eb-91bc-05cf9b85a4a8.png" width="15%"></img>
+<img src="https://user-images.githubusercontent.com/77455948/110972426-fe671b80-8329-11eb-935e-d4082f2a7906.png" width="15%"></img> 
  
 ## Tech/Framework used
  
