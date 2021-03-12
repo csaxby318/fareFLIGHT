@@ -121,11 +121,13 @@ submitBtn.addEventListener('click', function() {
 
     date = leaveDateTextBox.value
     formattedDate = date.slice(6,10) + "-" + date.slice(0,2) + "-" + date.slice(3,5)
+    dateReturn = returnDateTextBox.value
+    formattedReturnDate = dateReturn.slice(6,10) + "-" + dateReturn.slice(0,2) + "-" + dateReturn.slice(3,5)
 
     const from = fromTextBox.value
     const to = toTextBox.value
     const leaveDate = formattedDate
-    const returnDate = formattedDate
+    const returnDate = formattedReturnDate
     const numberOfPassengers = numberOfPassengersDropDown.value
     globalNumOfPassengers = numberOfPassengers
 
